@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from '../logo.svg';
-import '../App';
+import React, { useState } from 'react';
+import GlobalStyle from './GlobalStyle';
+import Header from './components/Header';
+import Sequencer from './Sequencer';
+import Slider from './Slider';
+import Button from './Button';
+import { ThemeProvider } from 'styled-components';
+
+const theme = {
+  colors: {
+    primary: '#ef4565',
+    secondary: '#282c34',
+  },
+};
 
 function App() {
+  const [bpm, setBpm] = useState<number>(120);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isSwing, setIsSwing] = useState<boolean>(false);
+
+  const handleBpmChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    setBpm(value);
+  };
+
+  const handlePlayToggle = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleSwingToggle = () => {
+    setIsSwing(!isSwing);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Header />
+      <Sequencer bpm={bpm} isPlaying={isPlaying} isSwing={isSwing} />
+      <Slider bpm={bpm} onChange={handleBpmChange} />
+      <Button variant="primary" onClick={handlePlayToggle}>
+        {isPlaying ? 'Stop' : 'Play'}
+      </Button>
+      <Button variant="secondary" onClick={handleSwingToggle}>
+        {isSwing ? 'Swing off' : 'Swing on'}
+      </Button>
+    </ThemeProvider>
   );
 }
 
