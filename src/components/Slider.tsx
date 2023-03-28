@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type SliderProps = {
-  value: number;
+  bpm: number;
   min?: number;
   max?: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -24,11 +24,10 @@ const SliderValue = styled.span`
   font-weight: bold;
 `;
 
-const Slider: React.FC<SliderProps> = ({ value, min, max, onChange }) => {
+const Slider: React.FC<SliderProps> = ({ bpm, min, max, onChange }) => {
   return (
     <SliderWrapper>
-      <SliderInput type="range" value={value} min={min} max={max} onChange={handleBpmChange} />
-      <SliderValue>{value}</SliderValue>
+      <Slider bpm={bpm} min={min = 20} max={max = 240} onChange={handleBpmChange} />
     </SliderWrapper>
   );
 };
