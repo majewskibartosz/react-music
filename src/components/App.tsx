@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GlobalStyle from './GlobalStyle';
-import Header from './components/Header';
+import Header from './Header';
 import Sequencer from './Sequencer';
 import Slider from './Slider';
 import Button from './Button';
