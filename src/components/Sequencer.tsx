@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { modifyHighlightClass, modifyClass } from '../utils/functions';
 import * as Tone from 'tone';
 
+type SequencerProps = {
+  bpm: number;
+  isPlaying: boolean;
+  isSwing: boolean;
+};
+
 const Sequencer: React.FC = () => {
   const [kit, setKit] = useState<Tone.Sampler>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
