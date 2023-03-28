@@ -25,11 +25,11 @@ const App: React.FC = () => {
     setBpm(value);
   };
 
-  const handlePlayToggle = () => {
+  const handlePlayClick = () => {
     setIsPlaying(!isPlaying);
   };
 
-  const handleSwingToggle = () => {
+  const handleSwingClick = () => {
     setIsSwing(!isSwing);
   };
 
@@ -42,15 +42,15 @@ const App: React.FC = () => {
         isPlaying={isPlaying}
         isSwing={isSwing}
         handleBpmChange={handleBpmChange}
-        handlePlayPauseClick={handlePlayToggle}
-        handleSwingClick={handleSwingToggle}
+        handlePlayPauseClick={handlePlayClick}
+        handleSwingClick={handleSwingClick}
       />
       <Sequencer bpm={bpm} isPlaying={isPlaying} isSwing={isSwing} />
       <Slider bpm={bpm} onChange={handleBpmChange} />
-      <Button variant="primary" onClick={handlePlayToggle}>
+      <Button variant="primary" onClick={handlePlayClick}>
         {isPlaying ? 'Stop' : 'Play'}
       </Button>
-      <Button variant="secondary" onClick={handleSwingToggle}>
+      <Button variant="secondary" onClick={handleSwingClick}>
         {isSwing ? 'Swing off' : 'Swing on'}
       </Button>
     </ThemeProvider>
