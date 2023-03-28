@@ -27,6 +27,7 @@ const StepButton = styled.button<{ isActive: boolean; isBeat: boolean }>`
 const Step: React.FC<StepProps> = ({ isActive, isBeat, handleClick, handleDoubleClick }) => {
   return (
     <StepButton
+      type="button"
       isActive={isActive}
       isBeat={isBeat}
       onClick={handleClick}
