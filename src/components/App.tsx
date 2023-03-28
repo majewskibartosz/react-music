@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import GlobalStyle from './GlobalStyle';
 import Header from './Header';
 import Sequencer from './Sequencer';
+import DrumMachine from './DrumMachine';
 import Slider from './Slider';
 import Button from './Button';
 import { ThemeProvider } from 'styled-components';
@@ -13,7 +14,8 @@ const theme = {
   },
 };
 
-function App() {
+
+const App: React.FC = () => {
   const [bpm, setBpm] = useState<number>(120);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isSwing, setIsSwing] = useState<boolean>(false);
@@ -35,6 +37,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
+      <DrumMachine
+        bpm={bpm}
+        isPlaying={isPlaying}
+        isSwing={isSwing}
+        handleBpmChange={handleBpmChange}
+        handlePlayPauseClick={handlePlayToggle}
+        handleSwingClick={handleSwingToggle}
+      />
       <Sequencer bpm={bpm} isPlaying={isPlaying} isSwing={isSwing} />
       <Slider bpm={bpm} onChange={handleBpmChange} />
       <Button variant="primary" onClick={handlePlayToggle}>
