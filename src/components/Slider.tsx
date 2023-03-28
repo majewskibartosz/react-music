@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 type SliderProps = {
   value: number;
-  min: number;
-  max: number;
+  min?: number;
+  max?: number;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -27,7 +27,7 @@ const SliderValue = styled.span`
 const Slider: React.FC<SliderProps> = ({ value, min, max, onChange }) => {
   return (
     <SliderWrapper>
-      <SliderInput type="range" value={value} min={min} max={max} onChange={onChange} />
+      <SliderInput type="range" value={value} min={min} max={max} onChange={handleBpmChange} />
       <SliderValue>{value}</SliderValue>
     </SliderWrapper>
   );
