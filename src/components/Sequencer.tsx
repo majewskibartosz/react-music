@@ -8,7 +8,7 @@ type SequencerProps = {
   isSwing: boolean;
 };
 
-const Sequencer: React.FC = () => {
+const Sequencer: React.FC<SequencerProps> = ({ bpm, isPlaying, isSwing }) => {
   const [kit, setKit] = useState<Tone.Sampler>();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [gain, setGain] = useState<Tone.Gain>();
@@ -68,7 +68,7 @@ const Sequencer: React.FC = () => {
       }
 
       Tone.Draw.schedule(() => {
-        modifyHighlightClass(input, false, modifyClass);
+        modifyHighlightClass(input, isSwing, modifyClass);
       }, time);
     });
     index++;
