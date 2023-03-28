@@ -11,14 +11,8 @@ type SliderProps = {
 const SliderWrapper = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const SliderInput = styled.input`
   flex: 1;
   margin: 0 1rem;
-`;
-
-const SliderValue = styled.span`
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
