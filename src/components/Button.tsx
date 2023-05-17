@@ -61,11 +61,17 @@ const ButtonWrapper = styled.button<{ variant: string; size: string }>`
   }
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px ${({ variant }) => (variant === 'secondary' ? '#fff' : '#282c34')};
+    box-shadow: 0 0 0 2px
+      ${({ variant }) => (variant === 'secondary' ? '#fff' : '#282c34')};
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', size = 'medium', ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'primary',
+  size = 'medium',
+  ...props
+}) => {
   return (
     <ButtonWrapper variant={variant} size={size} {...props}>
       {children}

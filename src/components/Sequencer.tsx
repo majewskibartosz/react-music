@@ -20,19 +20,22 @@ const Sequencer: React.FC<SequencerProps> = ({ bpm, isPlaying, isSwing }) => {
 
   useEffect(() => {
     // Create drum kit
-    const sampler = new Tone.Sampler({
-      C2: 'TONE1.wav',
-      E2: 'TONE2.wav',
-      D2: 'TONE3.wav',
-      F2: 'FX2.wav',
-      G2: 'CLAP.wav',
-      C3: 'CHH.wav',
-      D3: 'TOM.wav',
-      G3: 'KICK.wav',
-    }, {
-      release: 1,
-      baseUrl: '/sounds/',
-    });
+    const sampler = new Tone.Sampler(
+      {
+        C2: 'TONE1.wav',
+        E2: 'TONE2.wav',
+        D2: 'TONE3.wav',
+        F2: 'FX2.wav',
+        G2: 'CLAP.wav',
+        C3: 'CHH.wav',
+        D3: 'TOM.wav',
+        G3: 'KICK.wav',
+      },
+      {
+        release: 1,
+        baseUrl: '/sounds/',
+      },
+    );
     setKit(sampler);
 
     // Connect synth to master gain (speakers)
@@ -42,7 +45,9 @@ const Sequencer: React.FC<SequencerProps> = ({ bpm, isPlaying, isSwing }) => {
     setGain(masterGain);
 
     // Get rows
-    const rows = [...document.body.querySelectorAll('div > div')] as HTMLDivElement[];
+    const rows = [
+      ...document.body.querySelectorAll('div > div'),
+    ] as HTMLDivElement[];
     setRows(rows);
 
     // Clean up
@@ -74,11 +79,7 @@ const Sequencer: React.FC<SequencerProps> = ({ bpm, isPlaying, isSwing }) => {
     index++;
   };
 
-  return (
-    <div>
-      Sequencer
-    </div>
-  );
+  return <div>Sequencer</div>;
 };
 
 export default Sequencer;

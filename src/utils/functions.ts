@@ -2,7 +2,11 @@ import * as Tone from 'tone';
 
 export type ModifyClassAction = 'add' | 'remove' | 'toggle';
 
-export const toggleButton = (button: HTMLElement, sampler: Tone.Sampler, hasSwing: boolean) => {
+export const toggleButton = (
+  button: HTMLElement,
+  sampler: Tone.Sampler,
+  hasSwing: boolean,
+) => {
   // setup swing button behaviour
   if (button.classList.contains('swing')) {
     if (button.textContent === 'SWING OFF') {
@@ -33,7 +37,11 @@ export const toggleButton = (button: HTMLElement, sampler: Tone.Sampler, hasSwin
 export const modifyHighlightClass = (
   el: HTMLElement,
   hasSwing: boolean,
-  modifyClass: (el: HTMLElement, action: ModifyClassAction, elClass: string) => void
+  modifyClass: (
+    el: HTMLElement,
+    action: ModifyClassAction,
+    elClass: string,
+  ) => void,
 ) => {
   if (!hasSwing) {
     modifyClass(el, 'add', 'highlight');
@@ -48,7 +56,11 @@ export const modifyHighlightClass = (
   }
 };
 
-export const modifyClass = (el: HTMLElement, action: ModifyClassAction, elClass: string) => {
+export const modifyClass = (
+  el: HTMLElement,
+  action: ModifyClassAction,
+  elClass: string,
+) => {
   if (action === 'add') {
     el.classList.add(elClass);
   } else if (action === 'remove') {

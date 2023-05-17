@@ -14,7 +14,6 @@ const theme = {
   },
 };
 
-
 const App: React.FC = () => {
   const [bpm, setBpm] = useState<number>(120);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -55,6 +54,6 @@ const App: React.FC = () => {
       </Button>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

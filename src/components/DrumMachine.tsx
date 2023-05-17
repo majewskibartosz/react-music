@@ -29,12 +29,12 @@ const DrumMachine: React.FC<DrumMachineProps> = ({
     <DrumMachineWrapper>
       <Sequencer bpm={bpm} isPlaying={isPlaying} isSwing={isSwing} />
       <Slider bpm={90} min={40} max={240} onChange={handleBpmChange} />
-     <Button onClick={handlePlayPauseClick}>
-       {isPlaying ? 'STOP' : 'PLAY'}
-     </Button>
-     <Button onClick={handleSwingClick}>
-       {isSwing ? 'SWING ON' : 'SWING OFF'}
-     </Button>
+      <Button onClick={handlePlayPauseClick}>
+        {isPlaying ? 'STOP' : 'PLAY'}
+      </Button>
+      <Button onClick={handleSwingClick}>
+        {isSwing ? 'SWING ON' : 'SWING OFF'}
+      </Button>
     </DrumMachineWrapper>
   );
 };

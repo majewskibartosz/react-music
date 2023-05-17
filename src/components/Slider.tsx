@@ -21,7 +21,12 @@ const SliderWrapper = styled.div`
 const Slider: React.FC<SliderProps> = ({ bpm, min, max, onChange }) => {
   return (
     <SliderWrapper>
-      <Slider bpm={bpm} min={min = 20} max={max = 240} onChange={handleBpmChange} />
+      <Slider
+        bpm={bpm}
+        min={(min = 20)}
+        max={(max = 240)}
+        onChange={handleBpmChange}
+      />
     </SliderWrapper>
   );
 };
